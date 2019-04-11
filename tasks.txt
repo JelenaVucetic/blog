@@ -1,0 +1,3 @@
+header kome dinamicki saljes naslov, kategoriju, datum
+na glavnoj ppruka welcome
+slots
