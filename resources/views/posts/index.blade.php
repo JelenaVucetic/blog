@@ -2,6 +2,10 @@
 
 @section('content')
 
-    @include('posts.post')
+    @foreach ($posts as $post)
+
+        @include('posts.post')
+
+    @endforeach
 
 @endsection
