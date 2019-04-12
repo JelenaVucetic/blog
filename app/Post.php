@@ -26,6 +26,10 @@ class Post extends Model
              'post_id' => $this->id
 
          ]);
+    }
 
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
     }
 }

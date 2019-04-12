@@ -30,7 +30,7 @@
     </head>
 	<body>
 
-	@include('layouts.header')
+    @include('layouts.header')
 
 	<!-- section -->
     <div class="section">
