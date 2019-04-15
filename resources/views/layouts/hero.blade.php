@@ -8,7 +8,7 @@
                     {{-- <a class="post-category cat-2" href="category.html">JavaScript</a>
                     <span class="post-date">March 27, 2018</span> --}}
                 </div>
-                <h1>Welcome</h1>
+                <h1>@yield('header')</h1>
             </div>
         </div>
     </div>

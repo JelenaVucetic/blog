@@ -72,8 +72,8 @@
                             </div>
                             <div class="media-body">
                                 <div class="media-heading">
-                                    <h4>John Doe</h4>
-                                    <span class="time">March 27, 2018 at 8:00 am</span>
+                                    <h4>{{$comment->name}}</h4>
+                                    <span class="time">{{$comment->created_at->toFormattedDateString() }}</span>
                                     <a href="#" class="reply">Reply</a>
                                 </div>
                                 <p>{{$comment->body}}</p>
@@ -98,18 +98,18 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <span>Name *</span>
-                                    <input class="input" type="text" name="name">
+                                    <input class="input" type="text" name="name" required>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <span>Email *</span>
-                                    <input class="input" type="email" name="email">
+                                    <input class="input" type="email" name="email" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <textarea class="input" name="body" placeholder="Message"></textarea>
+                                    <textarea class="input" name="body" placeholder="Message" required></textarea>
                                 </div>
                                 <button class="primary-button">Submit</button>
                             </div>

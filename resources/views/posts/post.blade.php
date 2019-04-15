@@ -10,9 +10,9 @@
                 @endforeach
                 <span class="post-date">{{$post->created_at->toFormattedDateString() }}</span>
             </div>
-        <h3 class="post-title"><a href="/posts/{{$post->id}}"> {{$post->title}}</a></h3>
-            <p> {{$post->body}}</p>
-        </div>
+                <h3 class="post-title"><a href="/posts/{{$post->id}}"> {{$post->title}}</a></h3>
+                <p> {{$post->body}}</p>
+            </div>
     </div>
 </div>
 <!-- /post -->

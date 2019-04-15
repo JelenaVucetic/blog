@@ -44,12 +44,6 @@
 							<!-- post -->
 							@yield('content')
 							<!-- /post -->
-
-							<div class="col-md-12">
-								<div class="section-row">
-									<button class="primary-button center-block">Load More</button>
-								</div>
-							</div>
 						</div>
 					</div>
 

@@ -23,13 +23,19 @@ class Post extends Model
         /* $this->comments()->create(compact('body')); */
          Comment::create([
              'body' => request('body') ,
+             'name' => request('name'),
+             'email' => request('email'),
              'post_id' => $this->id
-
          ]);
     }
 
     public function categories()
     {
         return $this->hasMany(Category::class);
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Images::class);
     }
 }

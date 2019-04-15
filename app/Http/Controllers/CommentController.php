@@ -20,10 +20,12 @@ class CommentController extends Controller
     {
 
         $this->validate(request(), [
-            'body' => 'required|min:2' ,
+            'name' => 'required|min:3',
+            'body' => 'required|min:3' ,
+            'email' => 'required'
         ]);
 
-        $post -> addComment(request('body'));
+        $post -> addComment(request('body' , 'name' , 'email'));
 
         return back();
 
