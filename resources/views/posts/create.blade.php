@@ -6,6 +6,8 @@
 
 @section('content')
 
+
+
 <div class="col-sm-8 blog-main">
     <h1>Publish a post</h1>
 
@@ -30,12 +32,10 @@
         <button type="submit" class="btn btn-primary">Publish</button>
         </div>
 
-   {{--  <div class="form-group">
-            <label for="category">Select Category</label>
-            @foreach ($post->categories as $category)
-             <option value="{{$category->cat_id}}"> {{$category->name}}</option>
-            @endforeach
-        </div> --}}
+         {{-- @foreach ($post->categories as $category)
+            {{$category->name}}
+        @endforeach --}}
+
        @include('layouts.errors')
 
       </form>

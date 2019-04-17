@@ -6,16 +6,16 @@ use App\Category;
 use Illuminate\Http\Request;
 use App\Post;
 
-class CategoryController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Category $category)
     {
-        //
+        return view('categories.show' , compact('category'));
     }
 
 

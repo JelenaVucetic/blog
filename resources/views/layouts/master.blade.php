@@ -31,7 +31,6 @@
 	<body>
 
     @include('layouts.header')
-
 	<!-- section -->
     <div class="section">
 			<!-- container -->
