@@ -1,4 +1,4 @@
-/* 
+/*
 Template Name: WebMag Html Template
 
 Author: yaminncco
@@ -68,11 +68,12 @@ RESPONSIVE
 }
  p {
      margin: 0px 0px 20px;
+
 }
  ul,ol{
      margin: 0;
      padding: 0;
-     list-style: none 
+     list-style: none
 }
  ul.list-style, ol.list-style {
      padding-left: 15px;
@@ -976,4 +977,12 @@ RESPONSIVE
      .post.post-row .post-body p {
          display:none;
     }
+}
+
+.post-body p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
 }
