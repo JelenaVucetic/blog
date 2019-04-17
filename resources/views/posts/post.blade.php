@@ -4,7 +4,6 @@
         <a class="post-img" href="/posts/{{$post->id}}"><img src="./images/post-4.jpg" alt=""></a>
         <div class="post-body">
             <div class="post-meta">
-
                 @foreach ($post->categories as $category)
                 <a class="post-category cat-2" href="category.html">{{$category->name}}</a>
                 @endforeach

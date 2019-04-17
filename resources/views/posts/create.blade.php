@@ -29,12 +29,16 @@
         </div>
 
         <div class="form-group">
-        <button type="submit" class="btn btn-primary">Publish</button>
+        <select name="categories">
+            @foreach ($categories as $category)
+            <option value="volvo">{{$category->name}} </option>
+            @endforeach
+        </select>
         </div>
 
-         {{-- @foreach ($post->categories as $category)
-            {{$category->name}}
-        @endforeach --}}
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary">Publish</button>
+        </div>
 
        @include('layouts.errors')
 

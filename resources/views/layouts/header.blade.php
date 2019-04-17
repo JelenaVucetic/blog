@@ -12,12 +12,12 @@
                 <!-- /logo -->
 
                 <!-- nav -->
+                @foreach ($categories as $category)
+
                 <ul class="nav-menu nav navbar-nav">
-                    <li class="cat-1"><a href="category.html">Web Design</a></li>
-                    <li class="cat-2"><a href="category.html">JavaScript</a></li>
-                    <li class="cat-3"><a href="category.html">Css</a></li>
-                    <li class="cat-4"><a href="category.html">Jquery</a></li>
+                <li class="cat-1"><a href="/categories/{{$category->id}}">{{$category->name}}</a></li>
                 </ul>
+                @endforeach
                 <!-- /nav -->
 
                 <!-- search & aside toggle -->
