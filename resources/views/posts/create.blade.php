@@ -1,12 +1,16 @@
 @extends('layouts.master')
 
+
+@section('select2link')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+@endsection
+
+
 @section('header')
     Create Post
 @endsection
 
 @section('content')
-
-
 
 <div class="col-sm-8 blog-main">
     <h1>Publish a post</h1>
@@ -29,9 +33,9 @@
         </div>
 
         <div class="form-group">
-        <select name="categories">
+        <select class="js-example-basic-multiple" name="categories[]" multiple="multiple">
             @foreach ($categories as $category)
-            <option value="volvo">{{$category->name}} </option>
+                <option value="{{$category->id}}">{{$category->name}} </option>
             @endforeach
         </select>
         </div>
@@ -43,9 +47,19 @@
        @include('layouts.errors')
 
       </form>
-
-
-
 </div>
 
+@endsection
+
+@section('select2js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<script>
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2({
+         placeholder: 'Select an option',
+         width: '100%'
+    });
+
+    });
+</script>
 @endsection

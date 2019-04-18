@@ -38,8 +38,10 @@ class PostsController extends Controller
         $post->user_id = '1';
         $post->title = request('title');
         $post->body = request('body');
-
         $post->save();
+
+        $category_id = request('categories');
+        $post->categories()->attach($category_id);
 
         return redirect('/');
     }

@@ -7,7 +7,7 @@
                         <div class="col-md-5">
                             <div class="footer-widget">
                                 <div class="footer-logo">
-                                    <a href="index.html" class="logo"><img src="./images/logo.png" alt=""></a>
+                                    <a href="index.html" class="logo"><img src="/images/logo.png" alt=""></a>
                                 </div>
                                 <ul class="footer-nav">
                                     <li><a href="#">Privacy Policy</a></li>
@@ -36,12 +36,11 @@
                                 <div class="col-md-6">
                                     <div class="footer-widget">
                                         <h3 class="footer-title">Catagories</h3>
+                                        @foreach ($categories as $category)
                                         <ul class="footer-links">
-                                            <li><a href="category.html">Web Design</a></li>
-                                            <li><a href="category.html">JavaScript</a></li>
-                                            <li><a href="category.html">Css</a></li>
-                                            <li><a href="category.html">Jquery</a></li>
+                                            <li><a href="/categories/{{$category->id}}">{{$category->name}}</a></li>
                                         </ul>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
