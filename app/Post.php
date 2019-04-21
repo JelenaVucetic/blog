@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
+use App\Image;
 
 class Post extends Model
 {
@@ -37,6 +38,6 @@ class Post extends Model
 
     public function images()
     {
-        return $this->hasMany(Images::class);
+        return $this->hasMany(Image::class);
     }
 }

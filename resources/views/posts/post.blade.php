@@ -1,7 +1,7 @@
 <!-- post -->
 <div class="col-md-12">
     <div class="post post-row">
-        <a class="post-img" href="/posts/{{$post->id}}"><img src="./images/post-4.jpg" alt=""></a>
+        <a class="post-img" href="/posts/{{$post->id}}"><img src="/storage/images/$post->images" alt=""></a>
         <div class="post-body">
             <div class="post-meta">
                 @foreach ($post->categories as $category)

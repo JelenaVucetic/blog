@@ -18,6 +18,8 @@ class CreateImagesTable extends Migration
             $table->unsignedInteger('post_id');
             $table->string('name');
             $table->timestamps();
+
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 

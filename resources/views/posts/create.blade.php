@@ -19,7 +19,7 @@
         @csrf
     <hr>
 
-    <form method="POST" action="/">
+    <form method="POST" action="/" enctype="multipart/form-data">
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -33,6 +33,12 @@
         </div>
 
         <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" class="form-control" name="images">
+        </div>
+
+        <div class="form-group">
+        <label for="categories">Select Categories</label>
         <select class="js-example-basic-multiple" name="categories[]" multiple="multiple">
             @foreach ($categories as $category)
                 <option value="{{$category->id}}">{{$category->name}} </option>
