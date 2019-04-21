@@ -19,6 +19,7 @@ class PostsController extends Controller
     {
         $posts = Post::latest()->get();
         $categories = Category::all();
+        
         return view('posts.index', compact('posts' , 'categories'));
     }
 
@@ -30,14 +31,12 @@ class PostsController extends Controller
 
     public function store(Request $request) {
 
-        /* request()->validate([
+        request()->validate([
             'title' => ['required', 'min:3'] ,
             'body' => ['required', 'min:3'],
-        ]); */
+        ]);
         /* dd('govnoposrato'); */
         //Handle File Upload
-        dd($_FILES);
-        dd($request->hasFile('images'));
         if($request->hasFile('images')) {
             //Get File name with the extension
             $filenameWithExt = $request->file('images')->getClientOriginalName();

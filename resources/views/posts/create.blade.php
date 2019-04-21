@@ -15,12 +15,9 @@
 <div class="col-sm-8 blog-main">
     <h1>Publish a post</h1>
 
-    <form method="POST" action="/posts">
-        @csrf
-    <hr>
 
-    <form method="POST" action="/" enctype="multipart/form-data">
-        {{ csrf_field() }}
+    <form method="POST" action="/posts" enctype="multipart/form-data">
+       @csrf
 
         <div class="form-group">
           <label for="title">Title</label>
