@@ -67,12 +67,11 @@
 		<!-- /section -->
 
     @include('layouts.footer')
-
 		<!-- jQuery Plugins -->
 		<script src="/js/jquery.min.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
         <script src="/js/main.js"></script>
         @yield('select2js')
-
+        @yield('ckeditor')
 	</body>
 </html>

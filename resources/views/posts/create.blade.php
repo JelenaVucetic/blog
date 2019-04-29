@@ -16,7 +16,7 @@
     <h1>Publish a post</h1>
 
 
-    <form method="POST" action="/posts" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
        @csrf
 
         <div class="form-group">
@@ -25,13 +25,13 @@
         </div>
 
         <div class="form-group">
-          <label for="body">Body</label>
-          <textarea name="body" id="body" class="form-control" value="{{ old('body') }}" required></textarea>
+            <label for="image">Upload Image</label>
+            <input type="file" class="form-control" name="images">
         </div>
 
         <div class="form-group">
-            <label for="image">Upload Image</label>
-            <input type="file" class="form-control" name="images">
+          <label for="body">Description</label>
+          <textarea id="summary-ckeditor" name="body" id="body" class="form-control" value="{{ old('body') }}" required></textarea>
         </div>
 
         <div class="form-group">
@@ -64,5 +64,12 @@
     });
 
     });
+</script>
+@endsection
+
+@section('ckeditor')
+<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+<script>
+    CKEDITOR.replace( 'summary-ckeditor' );
 </script>
 @endsection

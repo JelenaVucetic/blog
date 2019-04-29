@@ -12,9 +12,15 @@
 */
 
 Route::get('/', 'PostsController@index');
-Route::get('/posts/create' , 'PostsController@create');
+/* Route::get('/posts/create' , 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}' , 'PostsController@show');
+
+Route::get('posts/{post}/edit' , 'PostsController@edit');
+Route::post('posts/{post}' , 'PostsController@update'); */
+
+Route::resource('posts', 'PostsController');
+
 Route::post('/posts/{post}/comments' , 'CommentController@store');
 
 Route::get('/categories/{category}' , 'CategoriesController@show' );
