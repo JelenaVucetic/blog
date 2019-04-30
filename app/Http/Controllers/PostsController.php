@@ -19,6 +19,7 @@ class PostsController extends Controller
     {
         $posts = Post::latest()->get();
         $posts = $posts->map(function($post){
+            $post->title = substr($post->title , 0, 50);
             $post->body = substr($post->body , 0, 50).'...';
             return $post;
         });
@@ -60,7 +61,7 @@ class PostsController extends Controller
 
         $post = new Post();
 
-        $post->user_id = '1';
+        $post->user_id = auth()->user()->id;
         $post->title = request('title');
         $post->body = request('body');
 
@@ -112,8 +113,7 @@ class PostsController extends Controller
         }
 
         $post = Post::find($id);
-
-        $post->user_id = '1';
+        
         $post->title = request('title');
         $post->body = request('body');
 

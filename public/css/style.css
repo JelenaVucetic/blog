@@ -979,3 +979,6 @@ RESPONSIVE
     }
 }
 
+.nav-btns > a {
+    margin-left: 25px;
+}
