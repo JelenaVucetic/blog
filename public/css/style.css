@@ -981,4 +981,12 @@ RESPONSIVE
 
 .nav-btns > a {
     margin-left: 25px;
+    margin-top: 25px;
+}
+
+.nav-btns {
+    display: flex;
+}
+.nav-item {
+    margin-top: 25px;
 }

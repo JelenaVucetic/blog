@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\User;
 use App\Image;
 use App\Category;
 use Illuminate\Http\Request;
@@ -113,7 +114,7 @@ class PostsController extends Controller
         }
 
         $post = Post::find($id);
-        
+
         $post->title = request('title');
         $post->body = request('body');
 

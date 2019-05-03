@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
@@ -15,6 +15,11 @@
                     @endif
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
                     <h3>Your Blog Posts</h3>
+                    <!-- post -->
+@foreach ($posts as $post)
+@include('posts.post')
+@endforeach
+<!-- /post -->
                 </div>
             </div>
         </div>

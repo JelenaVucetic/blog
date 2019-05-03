@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Post;
+use App\Category;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $categories = Category::all();
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        $posts = $posts->map(function($post){
+            $post->title = substr($post->title , 0, 50);
+            $post->body = substr($post->body , 0, 50).'...';
+            return $post;
+        });
+        return view('home', compact('categories'))->with('posts', $user->posts);
     }
 }
