@@ -30,8 +30,8 @@ class PostsController extends Controller
     {
         $posts = Post::latest()->get();
         $posts = $posts->map(function($post){
-            $post->title = substr($post->title , 0, 50);
-            $post->body = substr($post->body , 0, 50).'...';
+            $post->title = substr($post->title , 0, 100);
+            $post->body = substr($post->body , 0, 100).'...';
             return $post;
         });
         $categories = Category::all();
@@ -51,6 +51,22 @@ class PostsController extends Controller
             'title' => ['required', 'min:3'] ,
             'body' => ['required', 'min:3'],
         ]);
+
+        /* if($request->hasFile('auth_image')) {
+            //Get File name with the extension
+            $filenameWithExt = $request->file('auth_image')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //Get just ext
+            $extension = $request->file('auth_image')->getClientOriginalExtension();
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('auth_image')->storeAs('public/images', $fileNameToStore);
+        }
+        else {
+            $fileNameToStore = 'author.png';
+        } */
 
         //Handle File Upload
         if($request->hasFile('images')) {
@@ -151,7 +167,7 @@ class PostsController extends Controller
          if(auth()->user()->id !== $post->user_id) {
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }
-        
+
         $post->delete();
 
         return redirect('/posts')->with('success', 'Post has been removed');

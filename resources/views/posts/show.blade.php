@@ -34,11 +34,12 @@
                     <div class="post-author">
                         <div class="media">
                             <div class="media-left">
-                                <img class="media-object" src="/images/{{$post->author_image}}" alt="">
+                                <img class="media-object" src="/images/{{$post->user->user_image}}" alt="">
+
                             </div>
                             <div class="media-body">
                                 <div class="media-heading">
-                                    <h3>{{$post->author}}</h3>
+                                    <h3>{{$post->user->name}}</h3>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             </div>
@@ -50,7 +51,7 @@
                 <!-- comments -->
                 <div class="section-row">
                     <div class="section-title">
-                        <h2>3 Comments</h2>
+                        <h2>Comments</h2>
                     </div>
                 @if ($post->comments->count())
                     <div class="post-comments">
