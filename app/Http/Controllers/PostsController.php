@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a index page.
      *
@@ -87,6 +97,11 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         $categories = Category::all();
+
+        //Check for correct user
+        if(auth()->user()->id !== $post->user_id) {
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
         return view('posts.edit', compact('post', 'categories'));
     }
 
@@ -132,6 +147,11 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+
+         if(auth()->user()->id !== $post->user_id) {
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
+        
         $post->delete();
 
         return redirect('/posts')->with('success', 'Post has been removed');

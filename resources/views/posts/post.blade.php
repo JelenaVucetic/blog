@@ -8,7 +8,7 @@
                 @foreach ($post->categories as $category)
             <a class="post-category cat-2" href="/categories/{{$category->id}}">{{$category->name}}</a>
                 @endforeach
-                <span class="post-date">{{$post->created_at->toFormattedDateString() }}</span>
+            <span class="post-date">{{$post->created_at->toFormattedDateString() }} by {{$post->user->name}}</span>
             </div>
                 <h3 class="post-title"><a href="/posts/{{$post->id}}"> {!!$post->title!!}</a></h3>
                 <p> {!!$post->body!!}</p>
