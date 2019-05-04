@@ -14,8 +14,8 @@ class SearchController extends Controller
         $q = Input::get('q');
         $post = Post::where('title', 'LIKE', '%' .$q . '%')->get();
         if(count($post) > 0) {
-        return view('posts.test', compact('categories'))->withDetails($post)->withQuery($q);
+        return view('posts.search', compact('categories'))->withDetails($post)->withQuery($q);
         }
-        else return view('posts.test', compact('categories'))->withMessage('No Details found! Please try to search again!');
+        else return view('posts.search', compact('categories'))->withMessage('No Details found! Please try to search again!');
         }
 }
