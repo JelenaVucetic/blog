@@ -991,3 +991,8 @@ RESPONSIVE
     margin-top: 25px;
     list-style: none
 }
+
+.input-group {
+    margin-top: 20px;
+    margin-left: 25px;
+}

@@ -47,7 +47,17 @@
                             </div>
                         </li>
                 @endguest
-                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                    <form action="/search" method="POST" role="search">
+                        @csrf
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="q"
+                                placeholder="Search posts"> <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
                     <button class="aside-btn"><i class="fa fa-bars"></i></button>
                     <div class="search-form">
                         <button class="search-close"><i class="fa fa-times"></i></button>

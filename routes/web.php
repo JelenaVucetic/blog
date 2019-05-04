@@ -28,3 +28,5 @@ Route::get('/categories/{category}' , 'CategoriesController@show' );
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::any('/search', 'SearchController@index');
