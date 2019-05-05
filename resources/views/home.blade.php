@@ -17,8 +17,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <div class="create_btn">
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
-
+                    </div>
                 <!-- post -->
                 @if(count($posts) > 0)
                     @foreach ($posts as $post)

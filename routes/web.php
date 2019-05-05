@@ -24,6 +24,8 @@ Route::resource('posts', 'PostsController');
 Route::post('/posts/{post}/comments' , 'CommentController@store');
 
 Route::get('/categories/{category}' , 'CategoriesController@show' );
+Route::get('/tags/{tag}' , 'TagController@show' );
+
 
 Auth::routes();
 

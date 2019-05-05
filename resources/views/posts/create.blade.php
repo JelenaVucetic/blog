@@ -24,11 +24,11 @@
           <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}" required>
         </div>
 
-        <div class="form-group">
-            <label for="image">Upload Post Image</label>
+       {{--  <div class="form-group">
+            <label for="image">Upload Auth Image</label>
             <input type="file" class="form-control" name="auth_image">
         </div>
-
+ --}}
         <div class="form-group">
           <label for="body">Description</label>
           <textarea id="summary-ckeditor" name="body" id="body" class="form-control" value="{{ old('body') }}" required></textarea>

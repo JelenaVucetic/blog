@@ -1,8 +1,9 @@
 @extends('layouts.master')
-
+@section('header')
+The Search results <b> {{ $query }} </b> are :
+@endsection
 @section('content')
     @if(isset($details))
-        <p> The Search results <b> {{ $query }} </b> are :</p>
         <h2>Sample Post Details</h2>
 
             @foreach($details as $post)

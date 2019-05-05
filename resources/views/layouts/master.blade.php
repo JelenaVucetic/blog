@@ -73,5 +73,6 @@
         <script src="/js/main.js"></script>
         @yield('select2js')
         @yield('ckeditor')
+        @yield('edit_delete')
 	</body>
 </html>

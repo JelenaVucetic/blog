@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-@foreach ($category->posts as $post)
+@foreach ($tag->posts as $post)
 <!-- post -->
 <div class="col-md-12">
     <div class="post post-row">

@@ -30,8 +30,8 @@ class PostsController extends Controller
     {
         $posts = Post::latest()->get();
         $posts = $posts->map(function($post){
-            $post->title = substr($post->title , 0, 100);
-            $post->body = substr($post->body , 0, 100).'...';
+            $post->title = substr($post->title , 0, 50).'...';
+            $post->body = substr($post->body , 0, 70).'...';
             return $post;
         });
         $categories = Category::all();

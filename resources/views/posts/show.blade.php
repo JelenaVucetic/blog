@@ -1,5 +1,35 @@
 @extends('layouts.master')
 
+@section('edit_delete')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+        function changeLanguage(language) {
+            var element = document.getElementById("url");
+            element.value = language;
+            element.innerHTML = language;
+        }
+
+        function showDropdown() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+@endsection
+
 @section('content')
 
 <!-- section -->
@@ -12,9 +42,34 @@
             <div class="col-md-8">
                 <div class="section-row sticky-container">
                     <div class="main-post">
-                        <h3>{{$post->title}}</h3>
+                        <div class="postTitle">
+                            <h3>{{$post->title}}</h3>
+                        @if(!Auth::guest())
+                        @if(Auth::user()->id == $post->user_id)
+
+                        <div class="dropdown">
+                                <!-- three dots -->
+                                <ul class="dropbtn icons btn-right showLeft" onclick="showDropdown()">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                                <!-- menu -->
+                                <div id="myDropdown" class="dropdown-content">
+                                        <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
+
+                                        {!!Form::open(['action'=> ['PostsController@destroy', $post->id], 'methof' => 'POST', 'class' => 'pull-right'])!!}
+                                            {{Form::hidden('_method' , 'DELETE')}}
+                                            {{Form::submit('Delete', ['class' => 'btn deletebtn'])}}
+                                        {!!Form::close()!!}
+                                </div>
+                            </div>
+                            @endif
+                        @endif
+                        </div>
+
                         <figure class="figure-img">
-                            <img class="img-responsive" src="/images/post-4.jpg" alt="">
+                            <img class="img-responsive" src="/storage/images/{{$post->images->first()->name}}" alt="">
                             <figcaption>So Lorem Ipsum is bad (not necessarily)</figcaption>
                         </figure>
                         <p>{!!$post->body!!}</p>
@@ -109,17 +164,6 @@
                     @include('layouts.errors')
                 </div>
                 <!-- /reply -->
-
-                @if(!Auth::guest())
-                    @if(Auth::user()->id == $post->user_id)
-                        <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
-
-                        {!!Form::open(['action'=> ['PostsController@destroy', $post->id], 'methof' => 'POST', 'class' => 'pull-right'])!!}
-                            {{Form::hidden('_method' , 'DELETE')}}
-                            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                        {!!Form::close()!!}
-                    @endif
-                @endif
             </div>
             <!-- /Post content -->
         </div>
@@ -130,3 +174,5 @@
 <!-- /section -->
 
 @endsection
+
+

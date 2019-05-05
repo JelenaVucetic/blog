@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Category;
 use App\Image;
+use App\Tag;
 
 class Post extends Model
 {
@@ -39,5 +40,10 @@ class Post extends Model
     public function images()
     {
         return $this->hasMany(Image::class);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

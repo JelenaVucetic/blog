@@ -30,7 +30,7 @@ class HomeController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         $user->posts->map(function($post){
-            $post->title = substr($post->title , 0, 50);
+            $post->title = substr($post->title , 0, 50).'...';
             $post->body = substr($post->body , 0, 50).'...';
             return $post;
         });
