@@ -44,6 +44,7 @@
                     <div class="main-post">
                         <div class="postTitle">
                             <h3>{{$post->title}}</h3>
+
                         @if(!Auth::guest())
                         @if(Auth::user()->id == $post->user_id)
 
@@ -89,7 +90,7 @@
                     <div class="post-author">
                         <div class="media">
                             <div class="media-left">
-                                <img class="media-object" src="/images/{{$post->user->user_image}}" alt="">
+                                <img class="media-object" src="/images/author.png" alt="">
 
                             </div>
                             <div class="media-body">
@@ -114,7 +115,7 @@
                 @foreach ($post->comments as $comment)
                         <div class="media">
                             <div class="media-left">
-                                <img class="media-object" src="./img/avatar.png" alt="">
+                                <img class="media-object" src="/images/avatar.png" alt="">
                             </div>
                             <div class="media-body">
                                 <div class="media-heading">

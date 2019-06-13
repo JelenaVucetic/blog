@@ -1,4 +1,5 @@
 <?php
+use App\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,14 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::any('/search', 'SearchController@index');
+
+
+Route::get('/about', function() {
+    $categories = Category::all();
+    return view('about', compact('categories'));
+});
+
+Route::get('/contacts', function() {
+    $categories = Category::all();
+    return view('contacts', compact('categories'));
+});
